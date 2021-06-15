@@ -34,6 +34,9 @@ class TaskManager {
           document.getElementById("#divTasks").appendChild(node);   
 
   }
+
+  
+   
   printDiv() {
           let contentDiv ="";
           for (let i = 0; i < this.tasks.length; i++) {
@@ -44,6 +47,7 @@ class TaskManager {
             let taskItemAssigned = taskItem.assignedTo;
             let taskItemDate = taskItem.dueDate;
             let taskItemStatus = taskItem.status;
+            let taskItemID = taskItem.id;
             //console.log(this.tasks[i]['task']);
 
             // var tag = document.createElement("div");
@@ -72,7 +76,7 @@ class TaskManager {
                     Due date: ${taskItemDate} <br>
                     Status: ${taskItemStatus}
                   </p>
-                    <button type="button" class="btn btn-outline-success">Mark as Done</button>
+                    <button type="button" class="btn btn-outline-success" onclick='markDoneDiv(${taskItemID})'>Mark as Done</button>
                     <button type="button" class="btn btn-outline-danger">Delete</button>
                     <!-- task content end -->
                 </div>

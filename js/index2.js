@@ -8,6 +8,26 @@ console.log(taskManager);
 taskManager.printDiv();
 ////////////
 
+var numclick = 0;
+function markDoneDiv(id){
+  numclick = 1;
+  for (let i = 0; i < taskManager.tasks.length; i++) {
+    let taskID = taskManager.tasks[i].task.id;
+    if(id === taskID){
+      taskManager.tasks[i].task.status = 'Done';
+      console.log(taskManager.tasks[i].task.status);
+      taskManager.printDiv();
+      break;
+    }else{
+      console.log('Not Match');
+    }
+  }
+}
+
+
+
+
+
 // Select the New Task Form
 const form = document.querySelector("#addTaskForm");
 

@@ -1,7 +1,7 @@
 const taskManager = new TaskManager(0);
 
 
-
+taskManager.markDone(2);
 const txtTaskName =  document.querySelector('#txtTaskName');
 const txtTaskDescription =  document.querySelector('#txtTaskDescription');
 const txtDate =  document.querySelector('#txtDate');
