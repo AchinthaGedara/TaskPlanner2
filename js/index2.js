@@ -1,9 +1,9 @@
 // Initialize a new TaskManager with currentId set to 0
 const taskManager = new TaskManager(0);
 ///////////// add first load data
-taskManager.addTask('Take out the trash', 'take out the trash to the front of the house', 'Nick', '2020-09-20','In Progress');
+taskManager.addTask('Take trash', 'take out the trash to the front of the house', 'Nick', '2020-09-20','In Progress');
 taskManager.addTask('Cook Dinner','Prepare a healthy serving of pancakes for the family tonight','Nick','2020-09-20','In Progress');
-taskManager.addTask('Go Shpping','Buy Banana','Dave','2020-09-20','Done');
+taskManager.addTask('Go Shopping','Buy Banana and other items from supermarket','Dave','2020-09-20','Done');
 console.log(taskManager);
 taskManager.printDiv();
 ////////////
@@ -18,14 +18,12 @@ function markDoneDiv(id){
       console.log(taskManager.tasks[i].task.status);
       taskManager.printDiv();
       break;
-    }else{
-      console.log('Not Match');
+    }
+    else{
+    console.log('No Match');
     }
   }
 }
-
-
-
 
 
 // Select the New Task Form
@@ -40,7 +38,7 @@ form.addEventListener("submit", (event) => {
   let txtDate =  document.querySelector('#txtDate');
   let txtAssignedTo =  document.querySelector('#txtAssignedTo');
   let selectStatus =  document.querySelector('#selectStatus');
-  let btnAddTask =  document.querySelector('#btnAddTask');
+  //let btnAddTask =  document.querySelector('#btnAddTask');
 
   //err message
   
@@ -49,8 +47,6 @@ form.addEventListener("submit", (event) => {
   let errMessageDate =  document.querySelector('#errMessageDate');
   let errMessageAssigned =  document.querySelector('#errMessageAssigned');
   let errMessageStatus =  document.querySelector('#errMessageStatus');
-
-
 
 
   let validationFail = 0;
@@ -67,6 +63,17 @@ form.addEventListener("submit", (event) => {
     selectStatus.value = ""
 
   };
+  // Clear error after 1.6 s
+  const clearError= () =>{
+    setTimeout(function(){
+      errMessageName.innerHTML = "";
+      errMessageDate.innerHTML = "";
+      errMessageDescription.innerHTML = "";
+      errMessageStatus.innerHTML = "";
+      errMessageAssigned.innerHTML = "";
+  }, 1600);
+
+  };
 
   console.log("Task Name :" + txtTaskName.value.length);
   console.log("Task Description :" + txtTaskDescription.value.length);
@@ -75,15 +82,15 @@ form.addEventListener("submit", (event) => {
   console.log("Task Status:" + selectStatus.value);
 
   //////////////
-    // 1. Check if the Task Name input value is more than 5 characters.
+// 1. Check if the Task Name input value is more than 5 characters.
 // 2. Check if the Task Description input value is more than 5 characters.
 // 3. Check if the Assigned To value is more than 5 characters.
 // 4. Check if the Task Due Date input value is not empty.
 // 5. Check if the Task Status input value is not empty.
 
-
+  
   if(txtTaskName.value.length < 5 || txtTaskName.value === ""){
-    errMessageName.innerHTML = "Please input more than 5 character";
+    errMessageName.innerHTML = "Please input more than 5 characters";
     errMessageName.style.color= "red";
     txtTaskName.style.borderColor = "red";
     validationFail++;
@@ -98,7 +105,7 @@ form.addEventListener("submit", (event) => {
 
   // condition of Task Description
   if(txtTaskDescription.value.length < 5){
-    errMessageDescription.innerHTML = "Please input more than 5 character";
+    errMessageDescription.innerHTML = "Please input more than 5 characters";
     errMessageDescription.style.color= "red";
     txtTaskDescription.style.borderColor = "red";
     validationFail++;
@@ -110,7 +117,7 @@ form.addEventListener("submit", (event) => {
   }
   
   if(txtAssignedTo.value.length < 5){
-    errMessageAssigned.innerHTML = "Please input more than 5 character";
+    errMessageAssigned.innerHTML = "Please input more than 5 characters";
     errMessageAssigned.style.color= "red";
     txtAssignedTo.style.borderColor = "red";
     validationFail++;
@@ -144,17 +151,11 @@ form.addEventListener("submit", (event) => {
     selectStatus.style.borderColor = "red";
     validationFail++;
   } else {
-    errMessageStatus.innerHTML = "Well done!";
-   
+    errMessageStatus.innerHTML = "Well done!";    
     errMessageStatus.style.color= "green";
     selectStatus.style.borderColor = "green";
-    
+            
   }
-
-
-
-
-
 
 
   // If validation fails then function will not proceed further and
@@ -164,6 +165,8 @@ form.addEventListener("submit", (event) => {
   
   if (validationFail > 0) {
     validationFail = 0;
+    clearError();
+    clearFormFields();
     return;
   } else {
     // Push the valid input into our tasks array
@@ -175,13 +178,9 @@ form.addEventListener("submit", (event) => {
         selectStatus.value
     );
     clearFormFields();
+    clearError();
+    errMessageAssigned.innerHTML = "";
     taskManager.printDiv();
   }
-
-
-
-
-
-
 
 });
