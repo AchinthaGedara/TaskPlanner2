@@ -1,3 +1,5 @@
+
+//Sprint 2: TASK 7 createTaskHTML() AND RETURN html tags.
 const createTaskHtml = (name,description,assignedTo,dueDate,status,id) => {
   console.log(id);
     
@@ -33,7 +35,10 @@ const createTaskHtml = (name,description,assignedTo,dueDate,status,id) => {
   
   return html;            
 
-}
+// SPRINT2: TASK 6 --> Technical skills - Add Tasks programmatically
+// When a new task is added with valid information, the data should be stored inside a JavaScript object. Each task object should be added to and stored in an array variable.
+// The added task should be visible on the current tasks list and should display the task information.
+// When adding a new task, the task id should be incremented and unique.
 
 class TaskManager {
   constructor(currentId = 0) {
@@ -41,12 +46,12 @@ class TaskManager {
     this.currentId = currentId;
   }
 
-  // Create the addTask method
+  // task 6:Create the addTask method
   addTask(name, description, assignedTo, dueDate, status) {
-    // Create a task object that we will push to the list of tasks
+    // task 6: Create a task object that we will push to the list of tasks
     
     const task = {
-      // Increment the current Id for each new task
+      //task 6:  Increment the current Id for each new task
       id: this.currentId++,
       name: name,
       description: description,
@@ -54,6 +59,7 @@ class TaskManager {
       dueDate: dueDate,
       status: status,
     };
+    //task6: store in array
     this.tasks.push({ task });
     
   }
@@ -80,6 +86,7 @@ class TaskManager {
 
   }
 
+
   //Loading values
   load(){
     if (localStorage.getItem("tasks"))
@@ -96,6 +103,9 @@ class TaskManager {
   }
   
    
+
+  //Sprint 2: TASK 7 --> Each time a new task is added, the render() method is called to display the new task.
+
   printDiv() {
             let tasksHtmlList = [];
             
@@ -141,4 +151,7 @@ class TaskManager {
     this.printDiv();
   }
 
+
 }
+
+

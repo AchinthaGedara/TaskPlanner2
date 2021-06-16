@@ -3,8 +3,8 @@
 const taskManager = new TaskManager(0);
 
 taskManager.load();
-taskManager.printDiv();
 
+taskManager.printDiv();
 
 var numclick = 0;
 function markDoneDiv(id){
@@ -185,7 +185,7 @@ form.addEventListener("submit", (event) => {
 }
 );
 
-// Adding event listner to divTasks in order to perform delete function
+// Adding event listner to divTasks in order to perform delete task
 divTasks.addEventListener("click", (event) => {
   if (event.target.classList.contains("deleteButton"))
   {
