@@ -33,7 +33,8 @@ const createTaskHtml = (name,description,assignedTo,dueDate,status,id) => {
                  <!-- end task 1 -->
               </div>`;
   
-  return html;            
+  return html;          
+}  
 
 // SPRINT2: TASK 6 --> Technical skills - Add Tasks programmatically
 // When a new task is added with valid information, the data should be stored inside a JavaScript object. Each task object should be added to and stored in an array variable.

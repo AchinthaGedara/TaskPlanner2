@@ -1,9 +1,7 @@
-// Initialize a new TaskManager with currentId set to 0
-
+// Initialize a new TaskManager with currentId set to 0 
+// Create object from class TaskManager
 const taskManager = new TaskManager(0);
-
 taskManager.load();
-
 taskManager.printDiv();
 
 var numclick = 0;
