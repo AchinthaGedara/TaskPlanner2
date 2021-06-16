@@ -82,14 +82,12 @@ form.addEventListener("submit", (event) => {
   console.log("Task Status:" + selectStatus.value);
 
   ////////////// 
-// 1. Check if the Task Name input value is more than 5 characters.
-// 2. Check if the Task Description input value is more than 5 characters.
-// 3. Check if the Assigned To value is more than 5 characters.
-// 4. Check if the Task Due Date input value is not empty.
-// 5. Check if the Task Status input value is not empty.
 
-  
-  if(txtTaskName.value.length < 5 || txtTaskName.value === ""){
+
+
+
+  // 1. Check if the Task Name input value is more than 5 characters.
+ if(txtTaskName.value.length < 5 || txtTaskName.value === ""){
     errMessageName.innerHTML = "Please input more than 5 characters";
     errMessageName.style.color= "red";
     txtTaskName.style.borderColor = "red";
@@ -102,7 +100,7 @@ form.addEventListener("submit", (event) => {
     errMessageName.style.color= "green";
     txtTaskName.style.borderColor = "green";
   }
-
+  // 2. Check if the Task Description input value is more than 5 characters.
   // condition of Task Description
   if(txtTaskDescription.value.length < 5){
     errMessageDescription.innerHTML = "Please input more than 5 characters";
@@ -115,7 +113,7 @@ form.addEventListener("submit", (event) => {
     txtTaskDescription.style.borderColor = "green";
     
   }
-  
+  // 3. Check if the Assigned To value is more than 5 characters.
   if(txtAssignedTo.value.length < 5){
     errMessageAssigned.innerHTML = "Please input more than 5 characters";
     errMessageAssigned.style.color= "red";
@@ -127,7 +125,7 @@ form.addEventListener("submit", (event) => {
     txtAssignedTo.style.borderColor = "green";
     
   }
-  
+  // 4. Check if the Task Due Date input value is not empty.
   if(txtDate.value == "" ){
     //console.log('i am in date');
     errMessageDate.innerHTML = "Please provide a valid date";
@@ -143,6 +141,9 @@ form.addEventListener("submit", (event) => {
     
   
   }
+
+  // 5. Check if the Task Status input value is not empty.
+
   if(selectStatus.value === "Choose the Status"){
     //console.log('i am in status');
     errMessageStatus.innerHTML = "Please choose status";
@@ -157,7 +158,7 @@ form.addEventListener("submit", (event) => {
             
   }
 
-
+// check the form validation if check false, validationFail > 0 
   
   if (validationFail > 0) {
     validationFail = 0;
@@ -165,7 +166,7 @@ form.addEventListener("submit", (event) => {
     clearFormFields();
     return;
   } else {
-    // Push the valid input into our tasks array
+    // task 6 - Push the valid input into our tasks array
     taskManager.addTask(
         txtTaskName.value,
         txtTaskDescription.value,
@@ -176,6 +177,7 @@ form.addEventListener("submit", (event) => {
     clearFormFields();
     clearError();
     errMessageAssigned.innerHTML = "";
+    //task 7 -- call to display the new task
     taskManager.printDiv();
   }
 

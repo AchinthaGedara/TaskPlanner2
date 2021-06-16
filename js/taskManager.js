@@ -10,12 +10,12 @@ class TaskManager {
     this.currentId = currentId;
   }
 
-  // Create the addTask method
+  // task 6:Create the addTask method
   addTask(name, description, assignedTo, dueDate, status) {
-    // Create a task object that we will push to the list of tasks
+    // task 6: Create a task object that we will push to the list of tasks
     
     const task = {
-      // Increment the current Id for each new task
+      //task 6:  Increment the current Id for each new task
       id: this.currentId++,
       name: name,
       description: description,
@@ -23,6 +23,7 @@ class TaskManager {
       dueDate: dueDate,
       status: status,
     };
+    //task6: store in array
     this.tasks.push({ task });
     
   }
