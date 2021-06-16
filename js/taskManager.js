@@ -61,7 +61,9 @@ class TaskManager {
   //save method start here
   save()
   {
-     // Create a JSON string 
+      if(this.currentId >0)
+      {
+     // Create a JSON string
      const tasksJson = JSON.stringify(this.tasks);
      
       console.log(tasksJson);
@@ -74,6 +76,7 @@ class TaskManager {
  
      // Store the currentId in localStorage
      localStorage.setItem("currentId", currentId);
+      }
 
   }
 
@@ -89,7 +92,7 @@ class TaskManager {
     const currentId = localStorage.getItem("currentId");
     this.currentId = Number(currentId);    
     }
-    this.printDiv();
+    
   }
   
    
@@ -118,8 +121,7 @@ class TaskManager {
             // Set the inner html of the tasksList on the page
             const tasksList = document.querySelector("#divTasks");
             tasksList.innerHTML = tasksHtml;
-            this.save();      
-          
+            this.save();              
   }
 
   deleteTask(taskId)
@@ -128,7 +130,11 @@ class TaskManager {
     {
       if(taskId === this.tasks[i].task.id)
       {
-        this.tasks.splice((taskId-1),1);
+        this.tasks.splice(i,1);
+      }
+      else
+      {
+        console.log("Task Id not found ");
       }
 
     }

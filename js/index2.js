@@ -1,14 +1,10 @@
 // Initialize a new TaskManager with currentId set to 0
+
 const taskManager = new TaskManager(0);
 
-// first load data
 taskManager.load();
-// taskManager.addTask('Take trash', 'take out the trash to the front of the house', 'Nick', '2020-09-20','In Progress');
-// taskManager.addTask('Cook Dinner','Prepare a healthy serving of pancakes for the family tonight','Nick','2020-09-20','In Progress');
-// taskManager.addTask('Go Shopping','Buy Banana and other items from supermarket','Dave','2020-09-20','Done');
-// console.log(taskManager);
-// taskManager.printDiv();
-////////////
+taskManager.printDiv();
+
 
 var numclick = 0;
 function markDoneDiv(id){
