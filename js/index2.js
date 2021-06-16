@@ -1,11 +1,13 @@
 // Initialize a new TaskManager with currentId set to 0
 const taskManager = new TaskManager(0);
-///////////// add first load data
-taskManager.addTask('Take trash', 'take out the trash to the front of the house', 'Nick', '2020-09-20','In Progress');
-taskManager.addTask('Cook Dinner','Prepare a healthy serving of pancakes for the family tonight','Nick','2020-09-20','In Progress');
-taskManager.addTask('Go Shopping','Buy Banana and other items from supermarket','Dave','2020-09-20','Done');
-console.log(taskManager);
-taskManager.printDiv();
+
+// first load data
+taskManager.load();
+// taskManager.addTask('Take trash', 'take out the trash to the front of the house', 'Nick', '2020-09-20','In Progress');
+// taskManager.addTask('Cook Dinner','Prepare a healthy serving of pancakes for the family tonight','Nick','2020-09-20','In Progress');
+// taskManager.addTask('Go Shopping','Buy Banana and other items from supermarket','Dave','2020-09-20','Done');
+// console.log(taskManager);
+// taskManager.printDiv();
 ////////////
 ///TASK 8: "Mark as done" button is added to the tasks HTML template created in Task 7 and is visible in each task card on the page.
 var numclick = 0;
@@ -181,6 +183,19 @@ form.addEventListener("submit", (event) => {
     clearError();
     errMessageAssigned.innerHTML = "";
     taskManager.printDiv();
+    
   }
 
+}
+);
+
+// Adding event listner to divTasks
+divTasks.addEventListener("click", (event) => {
+  if (event.target.classList.contains("deleteButton"))
+  {
+    const taskId = Number(event.target.parentElement.parentElement.parentElement.getAttribute("cardId"));
+    console.log(event.target.parentElement.parentElement.parentElement);
+    taskManager.deleteTask(taskId);
+    
+  }
 });
