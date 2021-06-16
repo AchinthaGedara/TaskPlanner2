@@ -185,7 +185,7 @@ form.addEventListener("submit", (event) => {
 }
 );
 
-// Adding event listner to divTasks
+// Adding event listner to divTasks in order to perform delete function
 divTasks.addEventListener("click", (event) => {
   if (event.target.classList.contains("deleteButton"))
   {
