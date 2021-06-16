@@ -7,7 +7,7 @@ taskManager.addTask('Go Shopping','Buy Banana and other items from supermarket',
 console.log(taskManager);
 taskManager.printDiv();
 ////////////
-
+///TASK 8: "Mark as done" button is added to the tasks HTML template created in Task 7 and is visible in each task card on the page.
 var numclick = 0;
 function markDoneDiv(id){
   numclick = 1;
