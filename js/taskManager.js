@@ -3,7 +3,7 @@ const createTaskHtml = (name,description,assignedTo,dueDate,status,id) => {
     
     const html = `<div class="col-md-3 col-sm-6 mb-3">  
               <!-- task 1 start -->
-                <div class="card text-dark bg-light mb-3" style="max-width: 18rem;">
+                <div class="card text-dark bg-light mb-3" cardId="${id}" style="max-width: 18rem;" >
                   <div class="card-header text-center ">
                     <a data-bs-toggle="collapse" href="#collapseTask1" role="button" aria-expanded="false" aria-controls="collapseTask1 class="font-weight-bold">
                         ${name}
@@ -22,7 +22,7 @@ const createTaskHtml = (name,description,assignedTo,dueDate,status,id) => {
                               <span class= "font-weight-bold">  Status: </span>${status}
                           </p>
                       <button type="button" class="btn btn-outline-success me-3" onclick='markDoneDiv(${id})'>Mark as Done</button>
-                      <button type="button" class="btn btn-outline-danger ">Delete</button>
+                      <button type="button" class="btn btn-outline-danger deleteButton">Delete</button>
                       <!-- task content end -->
                     </div>
                   </div>   
@@ -57,7 +57,41 @@ class TaskManager {
     this.tasks.push({ task });
     
   }
+  
+  //save method start here
+  save()
+  {
+     // Create a JSON string 
+     const tasksJson = JSON.stringify(this.tasks);
+     
+      console.log(tasksJson);
+     // Store the JSON string 
+     localStorage.setItem("tasks", tasksJson);
+ 
+     // Convert the currentId to a string
+     const currentId = String(this.currentId);
+     console.log(currentId);
+ 
+     // Store the currentId in localStorage
+     localStorage.setItem("currentId", currentId);
 
+  }
+
+  //Loading values
+  load(){
+    if (localStorage.getItem("tasks"))
+    {
+    const tasksJson = localStorage.getItem("tasks");
+    this.tasks=JSON.parse(tasksJson);
+    }
+
+    if (localStorage.getItem("currentId")){
+    const currentId = localStorage.getItem("currentId");
+    this.currentId = Number(currentId);    
+    }
+    this.printDiv();
+  }
+  
    
   printDiv() {
             let tasksHtmlList = [];
@@ -84,9 +118,21 @@ class TaskManager {
             // Set the inner html of the tasksList on the page
             const tasksList = document.querySelector("#divTasks");
             tasksList.innerHTML = tasksHtml;
+            this.save();      
           
   }
 
+  deleteTask(taskId)
+  {
+    for (let i=0;i<this.tasks.length;i++)
+    {
+      if(taskId === this.tasks[i].task.id)
+      {
+        this.tasks.splice((taskId-1),1);
+      }
+
+    }
+    this.printDiv();
+  }
+
 }
-
-
