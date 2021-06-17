@@ -5,34 +5,36 @@ const createTaskHtml = (name,description,assignedTo,dueDate,status,id) => {
     
     const html = `<div class="col-md-3 col-sm-6 mb-3">  
               <!-- task 1 start -->
-                <div class="card text-dark bg-light mb-3" cardId="${id}" style="max-width: 18rem;" >
-                  <div class="card-header text-center ">
-                    <a data-bs-toggle="collapse" href="#collapseTask1" role="button" aria-expanded="false" aria-controls="collapseTask1 class="font-weight-bold">
+                <div class="card text-dark bg-light mb-3" cardid= "${id}" style="ma x-width: 18rem;" >
+                  <div class="card-header" text-center id="cardHeader">
+                    <a data-bs-toggle="collapse" href="#collapseTask1" role="button" aria-expanded="false" aria-controls="collapseTask1" style="color:black; font-weight:bold">
                         ${name}
                     </a>                    
                   </div>
 
                   <!-- collapse task 1 start -->
-                  <div class="collapse" id="collapseTask1">
-                    <div class="card-body">
+                  <div class="collapse text-left" id="collapseTask1">
+                    <div class="card-body ">
                     <!-- task content start  -->
-                          <p class="card-text">
-                              <span class= "font-weight-bold"> Description :</span>
-                              <div> ${description} </div><br>
-                              <span class= "font-weight-bold"> Assigned to: </span>${assignedTo} <br>
-                              <span class= "font-weight-bold"> Due date: </span>${dueDate} <br>
-                              <span class= "font-weight-bold">  Status: </span>${status}
+                          <p class="card-text text-left">
+                              <span class= "collapseTask1Span"> Description :</span>
+                              <div class="mt-0 pt-0"> ${description} </div><br>
+                              <span class= "collapseTask1Span"> Assigned to: </span>${assignedTo} <br>
+                              <span class= "collapseTask1Span"> Due date: </span>${dueDate} <br>
+                              <span class= "collapseTask1Span">  Status: </span>${status}
                           </p>
-                      <button type="button" class="btn btn-outline-success me-3" onclick='markDoneDiv(${id})'>Mark as Done</button>
-                      <button type="button" class="btn btn-outline-danger deleteButton">Delete</button>
+                      <div class="d-flex justify-content-around">
+                      
+                      <button type="button" class="btn btn-outline-success doneButton" id="${id}" onclick='markDoneDiv(${id})'>Mark As Done</button>
+                      <button type="button" class="btn btn-outline-danger deleteButton ">Delete</button>
+                      </div>
                       <!-- task content end -->
                     </div>
                   </div>   
                   <!-- collapse task 1 end -->
                 </div>
                  <!-- end task 1 -->
-              </div>`;
-  
+              </div>`;  
   return html;          
 }  
 
@@ -61,8 +63,7 @@ class TaskManager {
       status: status,
     };
     //task6: store in array
-    this.tasks.push({ task });
-    
+    this.tasks.push({ task });    
   }
   
   //save method start here
@@ -99,11 +100,12 @@ class TaskManager {
     if (localStorage.getItem("currentId")){
     const currentId = localStorage.getItem("currentId");
     this.currentId = Number(currentId);    
-    }
-    
+    }    
   }
   
-   
+  
+
+  
 
   //Sprint 2: TASK 7 --> Each time a new task is added, the render() method is called to display the new task.
 
@@ -132,6 +134,12 @@ class TaskManager {
             // Set the inner html of the tasksList on the page
             const tasksList = document.querySelector("#divTasks");
             tasksList.innerHTML = tasksHtml;
+            for (let i = 0; i < this.tasks.length; i++) {
+              if(this.tasks[i].task.status === "Done")
+              {
+                document.getElementById(this.tasks[i].task.id).style.display = "none";
+              }
+            }           
             this.save();              
   }
 
@@ -146,13 +154,11 @@ class TaskManager {
       else
       {
         console.log("Task Id not found ");
-      }
 
+      }
     }
     this.printDiv();
   }
-
-
 }
 
 
