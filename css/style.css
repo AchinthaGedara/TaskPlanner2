@@ -1,31 +1,49 @@
 :root {
-    --borderWidth: 7px;
-    --height: 24px;
-    --width: 12px;
-    --borderColor: #78b13f;
-  }
-  
-  body {
-    padding: 20px;
-    text-align: center;
-  }
-  
-  .check {
-    display: inline-block;
-    transform: rotate(45deg);
-    height: var(--height);
-    width: var(--width);
-    border-bottom: var(--borderWidth) solid var(--borderColor);
-    border-right: var(--borderWidth) solid var(--borderColor);
-  }
-  
-.navLogo{
-color:blue;
-font-family:'pacifico';
-font-size: 4 rem;
+  --borderWidth: 7px;
+  --height: 24px;
+  --width: 12px;
+  --borderColor: #78b13f;
 }
 
-.nav-link{
-    color:rgb(81, 68, 184) !important;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+body {
+  padding: 20px;
+  text-align: center;
 }
+
+.check {
+  display: inline-block;
+  transform: rotate(45deg);
+  height: var(--height);
+  width: var(--width);
+  border-bottom: var(--borderWidth) solid var(--borderColor);
+  border-right: var(--borderWidth) solid var(--borderColor);
+}
+
+.navLogo {
+  color:#044cfb;
+  font-family: 'pacifico';
+  font-size: 20px;
+  border:0;
+  margin:0;
+}
+
+.nav-link {
+  color:#044cfb !important;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
+#cardHeader {
+    
+  text-transform: capitalize;
+}
+
+.collapseTask1Span{
+  font-weight: bold;
+  font-style: italic;
+  
+}
+
+.card-body{
+  text-align: left;
+}
+

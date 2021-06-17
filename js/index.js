@@ -11,8 +11,8 @@ function markDoneDiv(id){
     let taskID = taskManager.tasks[i].task.id;
     if(id === taskID){
       taskManager.tasks[i].task.status = 'Done';
-      console.log(taskManager.tasks[i].task.status);
-      taskManager.printDiv();
+      console.log(taskManager.tasks[i].task.status);     
+      taskManager.printDiv();    
       break;
     }
     else{
@@ -26,8 +26,7 @@ function markDoneDiv(id){
 const form = document.querySelector("#addTaskForm");
 
 // Add an 'onsubmit' event listener
-form.addEventListener("submit", (event) => {
-  
+form.addEventListener("submit", (event) => {  
 
   let txtTaskName =  document.querySelector('#txtTaskName');
   let txtTaskDescription =  document.querySelector('#txtTaskDescription');
@@ -37,13 +36,11 @@ form.addEventListener("submit", (event) => {
   //let btnAddTask =  document.querySelector('#btnAddTask');
 
   //err message
-  
   let errMessageName =  document.querySelector('#errMessageName');
   let errMessageDescription =  document.querySelector('#errMessageDescription');
   let errMessageDate =  document.querySelector('#errMessageDate');
   let errMessageAssigned =  document.querySelector('#errMessageAssigned');
   let errMessageStatus =  document.querySelector('#errMessageStatus');
-
 
   let validationFail = 0;
 
@@ -57,8 +54,8 @@ form.addEventListener("submit", (event) => {
     txtAssignedTo.value = "";
     txtDate.value = "";
     selectStatus.value = ""
-
   };
+
   // Clear error after 1.6 s
   const clearError= () =>{
     setTimeout(function(){
@@ -68,7 +65,6 @@ form.addEventListener("submit", (event) => {
       errMessageStatus.innerHTML = "";
       errMessageAssigned.innerHTML = "";
   }, 1600);
-
   };
 
   console.log("Task Name :" + txtTaskName.value.length);
@@ -77,7 +73,6 @@ form.addEventListener("submit", (event) => {
   console.log("Task Due Date :" + txtDate.value);
   console.log("Task Status:" + selectStatus.value);
 
-  //////////////
 // 1. Check if the Task Name input value is more than 5 characters.
 // 2. Check if the Task Description input value is more than 5 characters.
 // 3. Check if the Assigned To value is more than 5 characters.
@@ -92,7 +87,8 @@ form.addEventListener("submit", (event) => {
     validationFail++;
     
     
-  } else {
+  } 
+  else{
     
     errMessageName.innerHTML = "Well done!";
     errMessageName.style.color= "green";
@@ -105,11 +101,11 @@ form.addEventListener("submit", (event) => {
     errMessageDescription.style.color= "red";
     txtTaskDescription.style.borderColor = "red";
     validationFail++;
-  } else {
+  } 
+  else {
     errMessageDescription.innerHTML = "Well done!";
     errMessageDescription.style.color= "green";
-    txtTaskDescription.style.borderColor = "green";
-    
+    txtTaskDescription.style.borderColor = "green";    
   }
   
   if(txtAssignedTo.value.length < 5){
@@ -117,28 +113,26 @@ form.addEventListener("submit", (event) => {
     errMessageAssigned.style.color= "red";
     txtAssignedTo.style.borderColor = "red";
     validationFail++;
-  } else {
+  } 
+  else {
     errMessageAssigned.innerHTML = "Well done!";
     errMessageAssigned.style.color= "green";
-    txtAssignedTo.style.borderColor = "green";
-    
-  }
-  
+    txtAssignedTo.style.borderColor = "green";    
+  }  
+
   if(txtDate.value == "" ){
     //console.log('i am in date');
-    errMessageDate.innerHTML = "Please provide a valid date";
-   
+    errMessageDate.innerHTML = "Please provide a valid date";   
     errMessageDate.style.color= "red";
     txtDate.style.borderColor = "red";
     validationFail++;
-  } else {
-    errMessageDate.innerHTML = "Well done!";
-   
+  } 
+  else {
+    errMessageDate.innerHTML = "Well done!";   
     errMessageDate.style.color= "green";
-    txtDate.style.borderColor = "green";
-    
-  
+    txtDate.style.borderColor = "green"; 
   }
+
   if(selectStatus.value === "Choose the Status"){
     //console.log('i am in status');
     errMessageStatus.innerHTML = "Please choose status";
@@ -146,11 +140,11 @@ form.addEventListener("submit", (event) => {
     errMessageStatus.style.color= "red";
     selectStatus.style.borderColor = "red";
     validationFail++;
-  } else {
+  }
+  else {
     errMessageStatus.innerHTML = "Well done!";    
     errMessageStatus.style.color= "green";
-    selectStatus.style.borderColor = "green";
-            
+    selectStatus.style.borderColor = "green";            
   }
 
 
@@ -164,22 +158,22 @@ form.addEventListener("submit", (event) => {
     clearError();
     clearFormFields();
     return;
-  } else {
+  } 
+  else {
     // Push the valid input into our tasks array
-    taskManager.addTask(
+  taskManager.addTask(
         txtTaskName.value,
         txtTaskDescription.value,
         txtAssignedTo.value,
         txtDate.value,
-        selectStatus.value
-    );
-    clearFormFields();
-    clearError();
-    errMessageAssigned.innerHTML = "";
-    taskManager.printDiv();
-    
+        selectStatus.value);
+        
+  clearFormFields();
+  clearError();
+  errMessageAssigned.innerHTML = "";
+  taskManager.printDiv();
+     
   }
-
 }
 );
 
@@ -187,9 +181,8 @@ form.addEventListener("submit", (event) => {
 divTasks.addEventListener("click", (event) => {
   if (event.target.classList.contains("deleteButton"))
   {
-    const taskId = Number(event.target.parentElement.parentElement.parentElement.getAttribute("cardId"));
+    const taskId = Number(event.target.parentElement.parentElement.parentElement.parentElement.getAttribute("cardid"));
     console.log(event.target.parentElement.parentElement.parentElement);
-    taskManager.deleteTask(taskId);
-    
+    taskManager.deleteTask(taskId);    
   }
 });
