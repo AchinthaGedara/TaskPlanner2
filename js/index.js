@@ -88,11 +88,9 @@ form.addEventListener("submit", (event) => {
     errMessageName.innerHTML = "Please input more than 5 characters";
     errMessageName.style.color= "red";
     txtTaskName.style.borderColor = "red";
-    validationFail++;
-        
+    validationFail++;        
   } 
-  else{
-    
+  else{    
     errMessageName.innerHTML = "Well done!";
     errMessageName.style.color= "green";
     txtTaskName.style.borderColor = "green";
@@ -169,13 +167,10 @@ form.addEventListener("submit", (event) => {
         txtTaskDescription.value,
         txtAssignedTo.value,
         txtDate.value,
-        selectStatus.value);
-        
-  //clearFormFields();
-
-  clearError();
-  //errMessageAssigned.innerHTML = "";
-  form.reset(); 
+        selectStatus.value);     
+  // clearError();
+  // //errMessageAssigned.innerHTML = "";
+  // form.reset(); 
   taskManager.printDiv();
      
   }
