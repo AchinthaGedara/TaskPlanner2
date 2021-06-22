@@ -58,13 +58,16 @@ form.addEventListener("submit", (event) => {
 
   // Clear error after 1.6 s
   const clearError= () =>{
-    setTimeout(function(){
-      errMessageName.innerHTML = "";
-      errMessageDate.innerHTML = "";
-      errMessageDescription.innerHTML = "";
-      errMessageStatus.innerHTML = "";
-      errMessageAssigned.innerHTML = "";
-  }, 1600);
+    errMessageName.innerHTML = "";
+    errMessageDate.innerHTML = "";
+    errMessageDescription.innerHTML = "";
+    errMessageStatus.innerHTML = "";
+    errMessageAssigned.innerHTML = "";
+    txtTaskName.removeAttribute('style');
+    txtTaskDescription.removeAttribute('style');
+    txtAssignedTo.removeAttribute('style');
+    txtDate.removeAttribute('style');
+    selectStatus.removeAttribute('style');
   };
 
   console.log("Task Name :" + txtTaskName.value.length);
@@ -79,8 +82,9 @@ form.addEventListener("submit", (event) => {
 // 4. Check if the Task Due Date input value is not empty.
 // 5. Check if the Task Status input value is not empty.
 
-  
-  if(txtTaskName.value.length < 5 || txtTaskName.value === ""){
+  //use trim() to check whitespace characters
+  if(txtTaskName.value.trim().length < 5 || txtTaskName.value === ""){
+    //console.log(txtTaskName.value.trim().length);
     errMessageName.innerHTML = "Please input more than 5 characters";
     errMessageName.style.color= "red";
     txtTaskName.style.borderColor = "red";
@@ -96,7 +100,7 @@ form.addEventListener("submit", (event) => {
   }
 
   // condition of Task Description
-  if(txtTaskDescription.value.length < 5){
+  if(txtTaskDescription.value.trim().length < 5|| txtTaskDescription.value === ""){
     errMessageDescription.innerHTML = "Please input more than 5 characters";
     errMessageDescription.style.color= "red";
     txtTaskDescription.style.borderColor = "red";
@@ -108,7 +112,7 @@ form.addEventListener("submit", (event) => {
     txtTaskDescription.style.borderColor = "green";    
   }
   
-  if(txtAssignedTo.value.length < 5){
+  if(txtAssignedTo.value.trim().length < 5 || txtAssignedTo.value === ""){
     errMessageAssigned.innerHTML = "Please input more than 5 characters";
     errMessageAssigned.style.color= "red";
     txtAssignedTo.style.borderColor = "red";
@@ -155,8 +159,8 @@ form.addEventListener("submit", (event) => {
   
   if (validationFail > 0) {
     validationFail = 0;
-    clearError();
-    clearFormFields();
+    //clearError();
+    //clearFormFields();
     return;
   } 
   else {
@@ -168,9 +172,11 @@ form.addEventListener("submit", (event) => {
         txtDate.value,
         selectStatus.value);
         
-  clearFormFields();
+  //clearFormFields();
+
   clearError();
-  errMessageAssigned.innerHTML = "";
+  //errMessageAssigned.innerHTML = "";
+  form.reset(); 
   taskManager.printDiv();
      
   }
