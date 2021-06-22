@@ -11,7 +11,7 @@ function markDoneDiv(id){
     let taskID = taskManager.tasks[i].task.id;
     if(id === taskID){
       taskManager.tasks[i].task.status = 'Done';
-      console.log(taskManager.tasks[i].task.status);     
+      console.log(taskManager.tasks[i].task.status);    
       taskManager.printDiv();    
       break;
     }
@@ -89,8 +89,7 @@ form.addEventListener("submit", (event) => {
     errMessageName.style.color= "red";
     txtTaskName.style.borderColor = "red";
     validationFail++;
-    
-    
+        
   } 
   else{
     

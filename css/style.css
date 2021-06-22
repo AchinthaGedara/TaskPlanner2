@@ -10,6 +10,7 @@ body {
   text-align: center;
 }
 
+/* Nav Bar start here */
 .check {
   display: inline-block;
   transform: rotate(45deg);
@@ -20,30 +21,56 @@ body {
 }
 
 .navLogo {
-  color:#044cfb;
+  color: hsl(241, 46%, 54%);
   font-family: 'pacifico';
   font-size: 20px;
-  border:0;
-  margin:0;
+  border: 0;
+  margin: 0;
 }
 
 .nav-link {
-  color:#044cfb !important;
-  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+  color: hsl(241, 46%, 54%) !important;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 }
 
+/* Cards strat here */
 #cardHeader {
-    
+
   text-transform: capitalize;
 }
 
-.collapseTask1Span{
+.collapseTask1Span {
   font-weight: bold;
   font-style: italic;
-  
 }
 
-.card-body{
+.card-body {
   text-align: left;
 }
 
+
+/* button */
+html,
+body {
+  height: 100%;
+}
+
+
+.button {
+  min-width: 300px;
+  min-height: 60px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 22px;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+  font-weight: 700;
+  color: #313133;
+  background: linear-gradient(90deg, #7089c7 0%, rgb(148, 147, 222) 100%);
+  border: none;
+  border-radius: 1000px;
+  box-shadow: 12px 12px 24px rgba(133, 185, 180, 0.64);
+  transition: all 0.3s ease-in-out 0s;
+  cursor: pointer;
+  outline: none;
+  padding: 0px;
+}
