@@ -18,17 +18,17 @@
 <body>
 
   <!-- Nav bar start here -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top mt-0 ">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top mt-0">
     <div class="container-fluid ">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01"
         aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse " id="navbarTogglerDemo01">
-        <p class="navLogo me-5 "> Task Planner </p>
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active ms-5" aria-current="page" href="#">Home</a>
+        <p class="navLogo ms-5"> Task Planner </p>
+        <ul class="navbar-nav ms-auto me-auto mb-2 mb-lg-0 ">
+          <li class="nav-item ms-5">
+            <a class="nav-link active " aria-current="page" href="#">Home</a>
           </li>
           <li class="nav-item ms-5">
             <a class="nav-link" href="#">Introduction</a>
@@ -36,9 +36,7 @@
           <li class="nav-item ms-5">
             <a class="nav-link" href="#">About Us</a>
           </li>
-
         </ul>
-
       </div>
     </div>
   </nav>
@@ -88,7 +86,6 @@
                       <input type="date" class="form-control" id="txtDate" required>
                       <div id="errMessageDate"></div>
                     </div>
-
                   </div>
                   <div class="mb-3 row">
                     <label for="txtAssignedTo" class="col-sm-2 col-form-label">Assigned To</label>
@@ -124,35 +121,33 @@
     </div>
 
     <!--Card Start here -->
-
-    <div class="row" id="divTasks">
-      <!-- To Do -->
-      <div class="todo col-md-3">
-      
-
-        <button class="button">To DO</button>
-
-        <section class="todoSection">a</section>
-      </div>
-      <!-- /To Do -->
-      <!-- In prpgress -->
-      <div class="inProgress col-md-3">
-        <button class="button">In Progres</button>
-        <section class="inProgressSection"></section>
-      </div>
-      <!-- /In progress -->
-      <!-- Review -->
-      <div class="review col-md-3">
-        <button class="button">Review</button>
-        <section class="reviewSection"></section>
-      </div>
-      <!-- Review -->
-      <!-- Done -->
-      <div class="done col-md-3">
-        <button class="button">Done</button>
+    <div class="container">
+      <div class="row" id="divTasks">
+        <!-- To Do -->
+        <div class="todo col-sm-10 col-md-3 ">
+          <button class="buttonDiv mt-2">To DO</button>
+          <section class="todoSection">a</section>
+        </div>
+        <!-- /To Do -->
+        <!-- In prpgress -->
+        <div class="inProgress col-sm-10 col-md-3">
+          <button class="buttonDiv mt-2">In Progres</button>
+          <section class="inProgressSection"></section>
+        </div>
+        <!-- /In progress -->
+        <!-- Review -->
+        <div class="review col-sm-10 col-md-3">
+          <button class="buttonDiv mt-2">Review</button>
+          <section class="reviewSection"></section>
+        </div>
+        <!-- Review -->
+        <!-- Done -->
+        <div class="done col-sm-10 col-md-3">
+          <button class="buttonDiv mt-2">Done</button>
           <section class="doneSection"></section>
+        </div>
+        <!-- /Done -->
       </div>
-      <!-- /Done -->
     </div>
     <!--Card End here -->
 

@@ -5,7 +5,7 @@ const createTaskHtml = (name,description,assignedTo,dueDate,status,id) => {
     
     const html = `
               <!-- task 1 start -->
-                <div class="card text-dark bg-light mb-3 mt-5" cardid= "${id}" style="ma x-width: 18rem;" >
+                <div class="card text-dark bg-light mb-3 mt-4" cardid= "${id}" style="ma x-width: 18rem;" >
                   <div class="card-header" text-center id="cardHeader">
                     <a data-bs-toggle="collapse" href="#collapseTask1" role="button" aria-expanded="false" aria-controls="collapseTask1" style="color:black; font-weight:bold">
                         ${name}
@@ -85,7 +85,6 @@ class TaskManager {
      // Store the currentId in localStorage
      localStorage.setItem("currentId", currentId);
       }
-
   }
 
 
@@ -110,8 +109,7 @@ class TaskManager {
   printDiv() {
             let tasksHtmlListTodo = [], tasksHtmlListInProgress = [],tasksHtmlListReview= [],tasksHtmlListDone = [];
             
-            for (let i = 0; i < this.tasks.length; i++) {
-            
+          for (let i = 0; i < this.tasks.length; i++) {            
             let taskItem = this.tasks[i].task;
             const taskHtml = createTaskHtml(
               taskItem.name,
@@ -135,32 +133,32 @@ class TaskManager {
           
             // Create the tasksHtml by joining them with space in between
             
-            const tasksHtmlTodo = tasksHtmlListTodo.join("\n");
-            const tasksHtmlInProgress = tasksHtmlListInProgress.join("\n");
-            const tasksHtmlReview = tasksHtmlListReview.join("\n");
-            const tasksHtmlDone = tasksHtmlListDone.join("\n");
+          const tasksHtmlTodo = tasksHtmlListTodo.join("\n");
+          const tasksHtmlInProgress = tasksHtmlListInProgress.join("\n");
+          const tasksHtmlReview = tasksHtmlListReview.join("\n");
+          const tasksHtmlDone = tasksHtmlListDone.join("\n");
 
-            // Set the inner html of the tasksList on the page
-            const tasksListTodo = document.querySelector(".todo .todoSection");
-            const tasksListInProgress = document.querySelector(".inProgress .inProgressSection");
-            const tasksListReview = document.querySelector(".review .reviewSection");
-            const tasksListDone = document.querySelector(".done .doneSection");
+          // Set the inner html of the tasksList on the page
+          const tasksListTodo = document.querySelector(".todo .todoSection");
+          const tasksListInProgress = document.querySelector(".inProgress .inProgressSection");
+          const tasksListReview = document.querySelector(".review .reviewSection");
+          const tasksListDone = document.querySelector(".done .doneSection");
 
-            
-            tasksListTodo.innerHTML= tasksHtmlTodo;
-            tasksListInProgress.innerHTML= tasksHtmlInProgress;
-            tasksListReview.innerHTML= tasksHtmlReview;
-            tasksListDone.innerHTML= tasksHtmlDone;
+          
+          tasksListTodo.innerHTML= tasksHtmlTodo;
+          tasksListInProgress.innerHTML= tasksHtmlInProgress;
+          tasksListReview.innerHTML= tasksHtmlReview;
+          tasksListDone.innerHTML= tasksHtmlDone;
                                   
 
 
-            for (let i = 0; i < this.tasks.length; i++) {
-              if(this.tasks[i].task.status === "Done")
-              {
-                document.getElementById(this.tasks[i].task.id).style.display = "none";
-              }
-            }           
-            this.save();              
+          for (let i = 0; i < this.tasks.length; i++) {
+            if(this.tasks[i].task.status === "Done")
+            {
+              document.getElementById(this.tasks[i].task.id).style.display = "none";
+            }
+          }           
+          this.save();              
   }
 
   deleteTask(taskId)
