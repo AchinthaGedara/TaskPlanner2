@@ -46,7 +46,6 @@ form.addEventListener("submit", (event) => {
 
   // Prevent default action
   event.preventDefault();
-
   // Call this to clear all the form fields after the submission
   const clearFormFields = () => {
     txtTaskName.value = "";
@@ -58,23 +57,14 @@ form.addEventListener("submit", (event) => {
 
   // Clear error after 1.6 s
   const clearError= () =>{
+    setTimeout(function(){
     errMessageName.innerHTML = "";
     errMessageDate.innerHTML = "";
     errMessageDescription.innerHTML = "";
     errMessageStatus.innerHTML = "";
-    errMessageAssigned.innerHTML = "";
-    txtTaskName.removeAttribute('style');
-    txtTaskDescription.removeAttribute('style');
-    txtAssignedTo.removeAttribute('style');
-    txtDate.removeAttribute('style');
-    selectStatus.removeAttribute('style');
-  };
-
-  console.log("Task Name :" + txtTaskName.value.length);
-  console.log("Task Description :" + txtTaskDescription.value.length);
-  console.log("Task Assigned To :" + txtAssignedTo.value.length);
-  console.log("Task Due Date :" + txtDate.value);
-  console.log("Task Status:" + selectStatus.value);
+    errMessageAssigned.innerHTML = "";    
+  },1600);
+};
 
 // 1. Check if the Task Name input value is more than 5 characters.
 // 2. Check if the Task Description input value is more than 5 characters.
@@ -156,8 +146,8 @@ form.addEventListener("submit", (event) => {
   
   if (validationFail > 0) {
     validationFail = 0;
-    //clearError();
-    //clearFormFields();
+    clearError();
+    clearFormFields();
     return;
   } 
   else {
@@ -168,11 +158,10 @@ form.addEventListener("submit", (event) => {
         txtAssignedTo.value,
         txtDate.value,
         selectStatus.value);     
-  // clearError();
-  // //errMessageAssigned.innerHTML = "";
-  // form.reset(); 
-  taskManager.printDiv();
-     
+  clearError();
+  errMessageAssigned.innerHTML = "";
+  form.reset(); 
+  taskManager.printDiv();     
   }
 }
 );
