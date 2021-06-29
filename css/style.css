@@ -53,11 +53,11 @@ body {
   text-transform: uppercase;
   letter-spacing: 1.3px;
   font-weight: 700;
-  color: rgb(72, 16, 120);
+  color: white;
   background: linear-gradient(90deg, #7089c7 0%, rgb(148, 147, 222) 100%);
   border: none;
   border-radius: 5px;
-  box-shadow: 14px 14px 14px rgba(172, 158, 215, 0.64);
+  /* box-shadow: 14px 14px 14px rgba(172, 158, 215, 0.64); */
   transition: all 0.3s ease-in-out 0s;
   cursor: pointer;
   outline: none;
