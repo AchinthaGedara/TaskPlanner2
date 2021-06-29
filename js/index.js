@@ -48,7 +48,11 @@ form.addEventListener("submit", (event) => {
 
   // Clear error after 1.6 s
   const clearError= () =>{
-      
+    errMessageName.innerHTML = "";
+    errMessageDate.innerHTML = "";
+    errMessageDescription.innerHTML = "";
+    errMessageStatus.innerHTML = "";
+    errMessageAssigned.innerHTML = "";
     txtTaskName.removeAttribute('style');
     txtTaskDescription.removeAttribute('style');
     txtAssignedTo.removeAttribute('style');
@@ -136,8 +140,7 @@ form.addEventListener("submit", (event) => {
   // ----------------------------------------------------------------------------------
   
   if (validationFail > 0) {
-    validationFail = 0;
-    clearError();    
+    validationFail = 0;     
     return;
   } 
   else {
