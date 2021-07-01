@@ -21,7 +21,6 @@ function markDoneDiv(id){
   }
 }
 
-
 // Select the New Task Form
 const form = document.querySelector("#addTaskForm");
 
@@ -46,25 +45,21 @@ form.addEventListener("submit", (event) => {
 
   // Prevent default action
   event.preventDefault();
-  // Call this to clear all the form fields after the submission
-  const clearFormFields = () => {
-    txtTaskName.value = "";
-    txtTaskDescription.value = "";
-    txtAssignedTo.value = "";
-    txtDate.value = "";
-    selectStatus.value = ""
-  };
 
   // Clear error after 1.6 s
   const clearError= () =>{
-    setTimeout(function(){
     errMessageName.innerHTML = "";
     errMessageDate.innerHTML = "";
     errMessageDescription.innerHTML = "";
     errMessageStatus.innerHTML = "";
-    errMessageAssigned.innerHTML = "";    
-  },1600);
-};
+    errMessageAssigned.innerHTML = "";
+    txtTaskName.removeAttribute('style');
+    txtTaskDescription.removeAttribute('style');
+    txtAssignedTo.removeAttribute('style');
+    txtDate.removeAttribute('style');
+    selectStatus.removeAttribute('style');
+  
+}
 
 // 1. Check if the Task Name input value is more than 5 characters.
 // 2. Check if the Task Description input value is more than 5 characters.
@@ -145,9 +140,7 @@ form.addEventListener("submit", (event) => {
   // ----------------------------------------------------------------------------------
   
   if (validationFail > 0) {
-    validationFail = 0;
-    clearError();
-    clearFormFields();
+    validationFail = 0;     
     return;
   } 
   else {
