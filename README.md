@@ -1,6 +1,6 @@
 Task Planner
 
-Task Planner application allows user to create new user tasks. Also user can assign tasks to various staus of the task process such as Pending, In review, To be completed, etc. Tasks would be saved in local strorage so that user can view it offline. Also user would be able to delete tasks if tasks are no no more required.
+Task Planner application allows user to create new user tasks. Also, user can assign tasks to various staus of the task process such as Pending, In review, To be completed, etc. Tasks would be saved in local strorage so that user can view it offline. Also, user would be able to delete tasks if tasks are no more required.
 
 Operation:
 1) Click on Add new task button to reveal the form.
